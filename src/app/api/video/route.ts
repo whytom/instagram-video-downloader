@@ -39,7 +39,9 @@ export async function GET(request: Request) {
 
   try {
     const postJson = await getVideoInfo(postId);
+    console.log("postJson", postJson);
     const response = makeSuccessResponse<VideoInfo>(postJson);
+    console.log("response", response);
     return NextResponse.json(response, { status: 200 });
   } catch (error: any) {
     return handleError(error);
